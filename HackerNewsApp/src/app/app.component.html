@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="estilo.css" rel="stylesheet" />
     <title>FLEBOX</title>
   </head>
   <body>
@@ -17,9 +15,22 @@
       </div>
 
       <div class="dropDown">
-        <select>
-          <option>select...</option>
-        </select>
+        <ng-select
+          class="custom"
+          [items]="framework"
+          bindLabel="name"
+          bindValue="id"
+          [(ngModel)]="selectedFramework"
+        >
+          <ng-template ng-label-tmp let-item="item">
+            <img height="25" width="25" [src]="item.img" />
+            <b>{{ item.name }}</b>
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <img height="25" width="25" [src]="item.img" />
+            <b> {{ item.name }}</b>
+          </ng-template>
+        </ng-select>
       </div>
 
       <div class="rowBox">
@@ -47,4 +58,3 @@
     </div>
   </body>
 </html>
-
